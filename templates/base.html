@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -15,10 +16,12 @@
             <a href="/" class="py-3 px-6 bg-sky-600 rounded-xl text-white">Sign Up</a>
             <a href="/" class="py-3 px-6 bg-sky-800 rounded-xl text-white">Login</a>
         </div>
-
     </nav>
 
-    <footer class="py-8 text-center bg-zinc-400">
+    {% block content %}
+    {% endblock %}
+
+    <footer class="py-8 text-center bg-zinc-300">
         <p class="text-xs">Copyright &#x24B8 2024  - Merlin CRM</p>
     </footer>
 </body>
