@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'userprofile',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-cbstange-crm-project-fxwjdw5pqp.us2.codeanyapp.com']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
