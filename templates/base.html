@@ -12,9 +12,17 @@
     <nav class="py-4 px-6 flex justify-between bg-sky-400">
         <a href="/" class="text-white">Merlin CRM</a>
 
-        <div>
-            <a href="{% url 'signup' %}" class="py-3 px-6 bg-sky-600 rounded-xl text-white">Sign Up</a>
-            <a href="/" class="py-3 px-6 bg-sky-800 rounded-xl text-white">Login</a>
+        <div class="space-x-4">
+            {% if request.user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="py-3 px-6 bg-red-600 rounded-xl text-white">Logout</button>
+              </form>
+            {% else %}
+                <a href="{% url 'signup' %}" class="py-3 px-6 bg-sky-600 rounded-xl text-white">Sign Up</a>
+                <a href="{% url 'login' %}" class="py-3 px-6 bg-sky-800 rounded-xl text-white">Login</a>
+            {% endif %}
+            
         </div>
     </nav>
 
