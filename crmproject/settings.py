@@ -19,6 +19,10 @@ ALLOWED_HOSTS = [
     '8000-cbstange-crmproject-w5hd11q313o.ws-eu108.gitpod.io',
 ]
 
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'index'
+
 
 # Application definition
 
