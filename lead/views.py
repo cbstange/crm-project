@@ -4,11 +4,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import NewLeadForm
 from .models import Lead
+from client.models import Client
 
 # Display leads as a list
 @login_required
 def leads_list(request):
-    leads = Lead.objects.filter(created_by=request.user)
+    leads = Lead.objects.filter(created_by=request.user, converted_to_client=False)
 
     return render(request, 'leads_list.html', {
         'leads': leads
@@ -78,3 +79,23 @@ def new_lead(request):
     return render(request, 'new_lead.html', {
         'form': form
     })
+
+
+# Convert a lead to a client
+@login_required
+def convert_to_client(request, pk):
+    lead = get_object_or_404(Lead, created_by=request.user, pk=pk)
+
+    client = Client.objects.create(
+        name=lead.name,
+        email=lead.email,
+        description=lead.description,
+        created_by=request.user,
+    )
+
+    lead.converted_to_client = True
+    lead.save()
+
+    messages.success(request, 'Lead converted to a client.')
+
+    return redirect('leads_list')
