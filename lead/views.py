@@ -51,7 +51,7 @@ def leads_edit(request,pk):
 
             return redirect('leads_list')
     else:
-        form = AddLeadForm()
+        form = AddLeadForm(isinstance=lead)
 
     return render(request, 'leads_edit.html', {
         'form': form
