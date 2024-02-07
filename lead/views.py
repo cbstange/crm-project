@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import NewLeadForm
 from .models import Lead
 
+# Display leads as a list
 @login_required
 def leads_list(request):
     leads = Lead.objects.filter(created_by=request.user)
@@ -12,14 +14,26 @@ def leads_list(request):
         'leads': leads
     })
 
+# Display lead details
 @login_required
 def leads_detail(request, pk):
-    lead = Lead.objects.get(pk=pk)
+    lead = get_object_or_404(Lead, created_by=request.user, pk=pk)
 
     return render(request, 'leads_detail.html', {
         'lead': lead
     })
 
+# Delete a lead with message confirmation
+@login_required
+def leads_delete(request, pk):
+    lead = get_object_or_404(Lead, created_by=request.user, pk=pk)
+    lead.delete()
+
+    messages.success(request, 'Lead successfully deleted.')
+
+    return redirect('leads_list')
+
+# Add a new lead - form submition
 @login_required
 def new_lead(request):
     if request.method == 'POST':

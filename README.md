@@ -8,7 +8,9 @@ You can safely delete this README.md file, or change it for your own project. Pl
 
 ## Credits
 ### Styling
-- Django [official docs](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/) were used for built in cycle templates to style data lists.
+- Django [official docs](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/):
+    - Cycle templates to style data lists.
+    - Messages framework for communicating actions to user.
 
 
 To log into the Heroku toolbelt CLI:

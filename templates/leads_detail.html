@@ -21,6 +21,14 @@
         <p class="mb-2">{{ lead.created_on }}</p>
 
         <p class="font-semibold">Modified on:</p>
-        <p class="mb-2">{{ lead.modified_on }}</p>
+        <p class="mb-6">{{ lead.modified_on }}</p>
+
+        <hr class="my-4">
+
+        <a href="{% url 'leads_delete' lead.id %}" class="inline-block px-5 py-3 bg-red-800 rounded-xl text-white">Delete</a>
+
+        <hr class="my-4">
+
+        <a href="{% url 'leads_list' %}" class="inline-block px-5 py-3 bg-sky-800 rounded-xl text-white">Back</a>
      </div>
 {% endblock %}
