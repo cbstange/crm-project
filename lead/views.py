@@ -14,6 +14,7 @@ def leads_list(request):
         'leads': leads
     })
 
+
 # Display lead details
 @login_required
 def leads_detail(request, pk):
@@ -22,6 +23,7 @@ def leads_detail(request, pk):
     return render(request, 'leads_detail.html', {
         'lead': lead
     })
+
 
 # Delete a lead with message confirmation
 @login_required
@@ -32,6 +34,29 @@ def leads_delete(request, pk):
     messages.success(request, 'Lead successfully deleted.')
 
     return redirect('leads_list')
+
+
+# Edit a lead
+@login_required
+def leads_edit(request,pk):
+    lead = get_object_or_404(Lead, created_by=request.user, pk=pk)
+    
+    if request.method == 'POST':
+        form = AddLeadForm(request.POST, instance=lead)
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Lead successfully edited.')
+
+            return redirect('leads_list')
+    else:
+        form = AddLeadForm()
+
+    return render(request, 'leads_edit.html', {
+        'form': form
+    })
+
 
 # Add a new lead - form submition
 @login_required
@@ -44,9 +69,12 @@ def new_lead(request):
             lead.created_by = request.user
             lead.save()
 
-            return redirect('dashboard')
+            messages.success(request, 'Lead successfully created.')
+
+            return redirect('leads_list')
     else:
-        form = NewLeadForm()   
+        form = NewLeadForm()
+
     return render(request, 'new_lead.html', {
         'form': form
     })
