@@ -17,6 +17,7 @@
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="py-3 px-6 bg-red-600 rounded-xl text-white">Logout</button>
+                <a href="{% url 'dashboard' %}" class="py-3 px-6 bg-sky-800 rounded-xl text-white">Dashboard</a>
               </form>
             {% else %}
                 <a href="{% url 'signup' %}" class="py-3 px-6 bg-sky-600 rounded-xl text-white">Sign Up</a>
