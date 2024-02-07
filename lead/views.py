@@ -12,6 +12,13 @@ def leads_list(request):
         'leads': leads
     })
 
+@login_required
+def leads_detail(request, pk):
+    lead = Lead.objects.get(pk=pk)
+
+    return render(request, 'leads_detail.html', {
+        'lead': lead
+    })
 
 @login_required
 def new_lead(request):

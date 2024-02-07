@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.leads_list, name='leads_list'),
+    path('<int:pk>/', views.leads_detail, name='leads_detail'),
     path('new-lead/', views.new_lead, name='new_lead'),
 ]
