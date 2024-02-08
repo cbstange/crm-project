@@ -43,7 +43,7 @@ def leads_edit(request,pk):
     lead = get_object_or_404(Lead, created_by=request.user, pk=pk)
     
     if request.method == 'POST':
-        form = AddLeadForm(request.POST, instance=lead)
+        form = NewLeadForm(request.POST, instance=lead)
 
         if form.is_valid():
             form.save()
@@ -52,7 +52,7 @@ def leads_edit(request,pk):
 
             return redirect('leads_list')
     else:
-        form = AddLeadForm(isinstance=lead)
+        form = NewLeadForm(instance=lead)
 
     return render(request, 'leads_edit.html', {
         'form': form
