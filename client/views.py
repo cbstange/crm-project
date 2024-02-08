@@ -53,3 +53,24 @@ def clients_delete(request, pk):
     messages.success(request, 'Client successfully deleted.')
 
     return redirect('clients_list')
+
+# Edit a client
+@login_required
+def clients_edit(request,pk):
+    client = get_object_or_404(Client, created_by=request.user, pk=pk)
+    
+    if request.method == 'POST':
+        form = NewClientForm(request.POST, instance=client)
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Client successfully edited.')
+
+            return redirect('clients_list')
+    else:
+        form = NewClientForm(instance=client)
+
+    return render(request, 'clients_edit.html', {
+        'form': form
+    })
