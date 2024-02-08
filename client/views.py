@@ -43,3 +43,13 @@ def new_client(request):
     return render(request, 'new_client.html', {
         'form': form
     })
+
+# Delete a client
+@login_required
+def clients_delete(request, pk):
+    client = get_object_or_404(Client, created_by=request.user, pk=pk)
+    client.delete()
+
+    messages.success(request, 'Client successfully deleted.')
+
+    return redirect('clients_list')
