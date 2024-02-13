@@ -4,6 +4,7 @@ from django.contrib import messages
 
 from .models import Client
 from .forms import NewClientForm
+from team.models import Team
 
 # Display a list of clients
 @login_required
@@ -30,8 +31,11 @@ def new_client(request):
         form = NewClientForm(request.POST)
 
         if form.is_valid():
+            team = Team.objects.filter(created_by=request.user)[0]
+
             client = form.save(commit=False)
             client.created_by = request.user
+            client.team = team
             client.save()
 
             messages.success(request, 'Client successfully created.')

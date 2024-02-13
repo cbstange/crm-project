@@ -17,6 +17,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '8000-cbstange-crm-project-fxwjdw5pqp.us2.codeanyapp.com',
     '8000-cbstange-crmproject-w5hd11q313o.ws-eu108.gitpod.io',
+    '8000-cbstange-crmproject-w5hd11q313o.ws-us108.gitpod.io',
 ]
 
 LOGIN_REDIRECT_URL = '/dashboard/'
@@ -44,7 +45,8 @@ INSTALLED_APPS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-cbstange-crm-project-fxwjdw5pqp.us2.codeanyapp.com',
     'https://8000-cbstange-crmproject-w5hd11q313o.ws-eu108.gitpod.io',
-]
+    'https://8000-cbstange-crmproject-w5hd11q313o.ws-us108.gitpod.io',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

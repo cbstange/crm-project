@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NewLeadForm
 from .models import Lead
 from client.models import Client
+from team.models import Team
 
 # Display leads as a list
 @login_required
@@ -66,8 +67,10 @@ def new_lead(request):
         form = NewLeadForm(request.POST)
 
         if form.is_valid():
+            team = Team.objects.filter(created_by=request.user)[0]
             lead = form.save(commit=False)
             lead.created_by = request.user
+            lead.team = team
             lead.save()
 
             messages.success(request, 'Lead successfully created.')
@@ -85,12 +88,14 @@ def new_lead(request):
 @login_required
 def convert_to_client(request, pk):
     lead = get_object_or_404(Lead, created_by=request.user, pk=pk)
+    team = Team.objects.filter(created_by=request.user)[0]
 
     client = Client.objects.create(
         name=lead.name,
         email=lead.email,
         description=lead.description,
         created_by=request.user,
+        team=team,
     )
 
     lead.converted_to_client = True

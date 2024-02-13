@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from team.models import Team
 
 '''
 When a new lead is created, it will be linked to the user
@@ -33,6 +34,7 @@ class Lead(models.Model):
     )
 
 # Fields for leads
+    team = models.ForeignKey(Team, related_name='leads', on_delete=models.CASCADE)
     name = models.CharField(max_length=260)
     email = models.EmailField()
     description = models.TextField(blank=True, null=True)
