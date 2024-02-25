@@ -1,28 +1,76 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# ![Battleship icon](./assets/images/readme-logo.png)
 
-Welcome,
+# Merlin CRM
+## Overview:
+### Merlin CRM is a simple Customer Relationship Management (CRM) application built using Django. The application provides basic functionalities for managing leads &  clients. It is designed to help businesses keep track of their interactions with potential and existing clients.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+#### [Here is the live version of my project](https://battleship-cbstange-ca945b7bee2a.herokuapp.com/).
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+![Mockup](.//assets/images/readme-mockup.png)
 
-## Credits
-### Styling
-- Django [official docs](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/):
-    - Cycle templates to style data lists.
-    - Messages framework for communicating actions to user.
+## Planning:
+- Researched popular [CRM applications](https://www.capterra.com/sem-compare/customer-relationship-management-software/?utm_source=ps-google&utm_medium=ppc&utm_campaign=:1:CAP:2:COM:3:All:4:INTL:5:BAU:6:SOF:7:Desktop:8:BR:9:CRM&network=g&gclid=Cj0KCQiA5-uuBhDzARIsAAa21T-gpUE1UGMnOwNaDPJqb2YoZORlvPsBz5HFY4qjbU2wVk9nCy1MzmoaApqBEALw_wcB) for inspiration and explaination of general priciples behind a CRM.
+- Created [wireframes](.//assets/images/readme-wireframe.pdf) to guide basic structure and styling.
 
 
-To log into the Heroku toolbelt CLI:
+## Libraries:
+- Built-in python libraries were used:
+    - random and randin were used to generate board.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Current Features:
+- Welcome screen with brief description.
+![welcome screen](.//assets/images/readme-welcome.png)
+- User can play against the computer.
+- User is unable to see the computer's board.
+- Five ships with four sizes available.
+- User is able to choose the location and orientation (horizontal or vertical) of all ships.
+![Place ship](.//assets/images/readme-place-ship.png)
+- Random ship placement for the computer's board.
+- Input validation:
+    - User must enter:
+        - An "H" or "V" for horizontal or vertical orientation of the ship.
+        - A number between 1-8 for the row.
+        - A letter between A-H for the column.
+    - User cannot enter the same guess twice.
+    - User must place ship within the board.
+        
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Future Features:
+- Option to update login credentials.
+- Add search functionality to query lead/client database.
+- Add more comprehensive CSS styling to provide a more attractive aesthetic.
 
----
+## Testing:
+- Regular print() statements were used to verify expected behavior.
+- DEBUG mode used inside Django to monitor and identify bugs when making changes and navigating site.
+- 
+- ### Validation:
+    - Python code validity check with [Code Institues's Tool](https://pep8ci.herokuapp.com/#).
+    - Used [Black]([https://codebeautify.org/python-formatter-beautifier#](https://black.readthedocs.io/en/stable/)) to check for and correct indentation issues and maintain formatting guidelines.
+- ### GitHub was used for version control.
 
-Happy coding!
+## Diployment:
+- [Heroku](https://www.heroku.com/) was used for app deployment
+- [WhiteNoise](https://whitenoise.readthedocs.io/en/stable/django.html) hosted the static files.
+
+## Database:
+- [ElephantSQL](https://www.elephantsql.com/) for PostgreSQL database hosting.
+
+## Resolved Bugs:
+- CSS styles were not applied after deployment to Heroku.
+    - Caused because the static files were not being hosted. Resolved by using [WhiteNoise](https://whitenoise.readthedocs.io/en/stable/index.html) to host static files.
+- FILLER TEXTTTTTT
+
+## Credits:
+### Media:
+- Images were sourced from [Unsplash](https://unsplash.com/) which is a site that provides free images so there are no copywrite violations.
+- [Mockup](https://websitemockupgenerator.com/) image generator was used to create image for readme file.
+- Wireframe created using [Lucid Chart](https://lucidchart.com/).
+    - Wireframe can be found here.
+
+### Styling:
+-[Tailwind](https://tailwindcss.com/) CSS framework was used for styling.
+
+### Supporting documents:
+- YoutTube channel [Code With Stein](https://www.youtube.com/watch?v=LWro0nVdrBw&list=PLpyspNLjzwBka94O3ABYcRYk8IaBR8hXZ&index=1) was used to guide basic structure of the application.
+-  [Official Django documentation](https://docs.djangoproject.com/en/5.0/) 
