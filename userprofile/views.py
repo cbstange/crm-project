@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 from .models import Userprofile
 from team.models import Team
@@ -16,7 +17,7 @@ def signup(request):
             
             Userprofile.objects.create(user=user)
             team = Team.objects.create(name='The team name', created_by=request.user)
-            team.members.add(request.user)
+            team.members.add(user)
             team.save()
 
             return redirect('/log-in')
@@ -29,7 +30,4 @@ def signup(request):
 
 @login_required
 def myaccount(request):
-    team = Team.objects.filter(created_by=request.user)[0]
-    return render(request, 'myaccount.html', {
-        'team': team
-    })
+    return render(request, 'myaccount.html')

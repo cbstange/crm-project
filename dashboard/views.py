@@ -9,7 +9,12 @@ from team.models import Team
 def dashboard(request):
     
     
-    team = Team.objects.filter(created_by=request.user)[0]
+    team = Team.objects.filter(created_by=request.user)
+    if team:
+        team = team[0]
+    else:
+        team = None
+
 
     
     leads = Lead.objects.filter(team=team, converted_to_client=False).order_by('-created_on')[0:5]

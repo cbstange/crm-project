@@ -3,7 +3,7 @@ from django.db import models
 from team.models import Team
 
 class Client(models.Model):
-    team = models.ForeignKey(Team, related_name='clients', on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, related_name='clients', on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=260)
     email = models.EmailField()
     description = models.TextField(blank=True, null=True)
@@ -17,3 +17,5 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
+
+

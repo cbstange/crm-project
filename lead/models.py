@@ -34,7 +34,7 @@ class Lead(models.Model):
     )
 
 # Fields for leads
-    team = models.ForeignKey(Team, related_name='leads', on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, related_name='leads', on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=260)
     email = models.EmailField()
     description = models.TextField(blank=True, null=True)

@@ -31,7 +31,13 @@ def new_client(request):
         form = NewClientForm(request.POST)
 
         if form.is_valid():
-            team = Team.objects.filter(created_by=request.user)[0]
+            team_queryset = Team.objects.filter(created_by=request.user)
+
+            if team_queryset.exists():
+                team = team_queryset[0]
+            else:
+                # Handle the case when the queryset is empty, e.g., create a new team.
+                team = Team.objects.create(created_by=request.user, name='Default Team')
 
             client = form.save(commit=False)
             client.created_by = request.user
@@ -47,6 +53,7 @@ def new_client(request):
     return render(request, 'new_client.html', {
         'form': form
     })
+
 
 # Delete a client
 @login_required
