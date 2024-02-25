@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_pp#+_%1i^fb-l%3%7o73d1)1t@nr7=8%js^s18%2%1ukmot*q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-cbstange-crm-project-fxwjdw5pqp.us2.codeanyapp.com',
