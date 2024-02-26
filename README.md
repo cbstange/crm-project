@@ -10,30 +10,47 @@
 
 ## Planning:
 - Researched popular [CRM applications](https://www.capterra.com/sem-compare/customer-relationship-management-software/?utm_source=ps-google&utm_medium=ppc&utm_campaign=:1:CAP:2:COM:3:All:4:INTL:5:BAU:6:SOF:7:Desktop:8:BR:9:CRM&network=g&gclid=Cj0KCQiA5-uuBhDzARIsAAa21T-gpUE1UGMnOwNaDPJqb2YoZORlvPsBz5HFY4qjbU2wVk9nCy1MzmoaApqBEALw_wcB) for inspiration and explaination of general priciples behind a CRM.
-- Created [wireframes](.//assets/images/readme-wireframe.pdf) to guide basic structure and styling.
+- Created [wireframes](.//assets/images/readme-wireframe.png) to guide basic structure and styling.
 
 
 ## Frameworks & Libraries:
 - Django Python framework was used for development and handled:
     - User authentication
-    - 
+    - Messages
 
 ## Current Features:
+## Home
 - ![Home page](.//assets/images/readme-index.png)
     - When a user is not logged in, only "Sign Up" and "Login" are displayed.
 
+## Sign Up
 - ![Sign Up](.//assets/images/readme-signup.png)
     - Built-in Django credential validation used to verify valid data entered.
 
+## Login
 - ![Login](.//assets/images/readme-login.png)
     - Once logged in, user is directed to their dashboard view.
 
+## Dashboard
 - ![Dashboard](.//assets/images/readme-dashboard.png)
     - A list of the 5 most recent clients is displayed.
     - Each client has a "details" button to display more information.
 
+## Lead/client list
+- ![Lead/client list](./assets/images/readme-list.png)
+    - Leads and clients are displayed as a list. Clicking on the name of the lead/client directs user to more details.
+
+## Client/lead details
 - ![Client/lead details](.//assets/images/readme-client-detail.png)
-    - Name, 
+    - Name, description, email, created-on, modified-on fields are displayed.
+    - User has the option to edit, delete or return to the list.
+
+## Conversion
+- Once a lead is qualified, user can convert the lead to a client.
+
+## My Account
+- ![My Account](.//assets/images/readme-myaccount.png)
+    - User can view username and email associated with their account.
 
         
 
@@ -46,6 +63,7 @@
 - Regular print() statements were used to verify expected behavior.
 - DEBUG mode used inside Django to monitor and identify bugs when making changes and navigating site.
 - 
+
 - ### Validation:
     - Python code validity check with [Code Institues's Tool](https://pep8ci.herokuapp.com/#).
     - Used [Black]([https://codebeautify.org/python-formatter-beautifier#](https://black.readthedocs.io/en/stable/)) to check for and correct indentation issues and maintain formatting guidelines.
