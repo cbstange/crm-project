@@ -13,26 +13,28 @@
 - Created [wireframes](.//assets/images/readme-wireframe.pdf) to guide basic structure and styling.
 
 
-## Libraries:
-- Built-in python libraries were used:
-    - random and randin were used to generate board.
+## Frameworks & Libraries:
+- Django Python framework was used for development and handled:
+    - User authentication
+    - 
 
 ## Current Features:
-- Welcome screen with brief description.
-![welcome screen](.//assets/images/readme-welcome.png)
-- User can play against the computer.
-- User is unable to see the computer's board.
-- Five ships with four sizes available.
-- User is able to choose the location and orientation (horizontal or vertical) of all ships.
-![Place ship](.//assets/images/readme-place-ship.png)
-- Random ship placement for the computer's board.
-- Input validation:
-    - User must enter:
-        - An "H" or "V" for horizontal or vertical orientation of the ship.
-        - A number between 1-8 for the row.
-        - A letter between A-H for the column.
-    - User cannot enter the same guess twice.
-    - User must place ship within the board.
+- ![Home page](.//assets/images/readme-index.png)
+    - When a user is not logged in, only "Sign Up" and "Login" are displayed.
+
+- ![Sign Up](.//assets/images/readme-signup.png)
+    - Built-in Django credential validation used to verify valid data entered.
+
+- ![Login](.//assets/images/readme-login.png)
+    - Once logged in, user is directed to their dashboard view.
+
+- ![Dashboard](.//assets/images/readme-dashboard.png)
+    - A list of the 5 most recent clients is displayed.
+    - Each client has a "details" button to display more information.
+
+- ![Client/lead details](.//assets/images/readme-client-detail.png)
+    - Name, 
+
         
 
 ## Future Features:
