@@ -4,19 +4,27 @@
 ## Overview:
 ### Merlin CRM is a simple Customer Relationship Management (CRM) application built using Django. The application provides basic functionalities for managing leads &  clients. It is designed to help businesses keep track of their interactions with potential and existing clients.
 
-#### [Here is the live version of my project](https://battleship-cbstange-ca945b7bee2a.herokuapp.com/).
+#### [Here is the live version of my project](https://merlin-crm-19c23f0025ee.herokuapp.com/).
 
 ![Mockup](.//assets/images/readme-mockup.png)
 
 ## Planning:
 - Researched popular [CRM applications](https://www.capterra.com/sem-compare/customer-relationship-management-software/?utm_source=ps-google&utm_medium=ppc&utm_campaign=:1:CAP:2:COM:3:All:4:INTL:5:BAU:6:SOF:7:Desktop:8:BR:9:CRM&network=g&gclid=Cj0KCQiA5-uuBhDzARIsAAa21T-gpUE1UGMnOwNaDPJqb2YoZORlvPsBz5HFY4qjbU2wVk9nCy1MzmoaApqBEALw_wcB) for inspiration and explaination of general priciples behind a CRM.
 - Created [wireframes](.//assets/images/readme-wireframe.png) to guide basic structure and styling.
+- Agile development principles were followed where [Github's Project](https://github.com/users/cbstange/projects/3/views/1) tool was used to track user stories and the progress of feature implementation.
 
 
 ## Frameworks & Libraries:
-- Django Python framework was used for development and handled:
+- Django Python framework was used for development and handled for example:
     - User authentication
-    - Messages
+    - Messages: User input validation and error communication
+    - Form validation
+    - Main libraries used:
+        - Render
+        - Get_object_or_404
+        - Redirect
+        - Login required
+        - Admin
 
 ## Current Features:
 ## Home
@@ -52,7 +60,6 @@
 - ![My Account](.//assets/images/readme-myaccount.png)
     - User can view username and email associated with their account.
 
-        
 
 ## Future Features:
 - Option to update login credentials.
@@ -62,7 +69,8 @@
 ## Testing:
 - Regular print() statements were used to verify expected behavior.
 - DEBUG mode used inside Django to monitor and identify bugs when making changes and navigating site.
-- 
+- Python automated tests was not used in this project.
+- Five users were given access to page during development to test functionality and assist in bug reporting.
 
 - ### Validation:
     - Python code validity check with [Code Institues's Tool](https://pep8ci.herokuapp.com/#).
@@ -70,7 +78,7 @@
 - ### GitHub was used for version control.
 
 ## Diployment:
-- [Heroku](https://www.heroku.com/) was used for app deployment
+- [Heroku](https://www.heroku.com/) was used for app deployment.
 - [WhiteNoise](https://whitenoise.readthedocs.io/en/stable/django.html) hosted the static files.
 
 ## Database:
@@ -79,7 +87,8 @@
 ## Resolved Bugs:
 - CSS styles were not applied after deployment to Heroku.
     - Caused because the static files were not being hosted. Resolved by using [WhiteNoise](https://whitenoise.readthedocs.io/en/stable/index.html) to host static files.
-- FILLER TEXTTTTTT
+- After first diployment to Heroku, I received a Server Error (500)
+    Caused because I did not migrate changes I made to a models.py file to the database.
 
 ## Credits:
 ### Media:
